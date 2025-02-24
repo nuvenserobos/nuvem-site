@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuvens e Robôs</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Estilo Personalizado -->
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -20,22 +23,22 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#inicio" id="inicio-link">
-                                <img src="{{ url_for('static', filename='img/inicio.png') }}" alt="Início" class="nav-img">
+                                <img src="static/img/inicio.png" alt="Início" class="nav-img">
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#sobre">
-                                <img src="{{ url_for('static', filename='img/sobre.png') }}" alt="Sobre" class="nav-img">
+                                <img src="static/img/sobre.png" alt="Sobre" class="nav-img">
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#chatbot">
-                                <img src="{{ url_for('static', filename='img/chatbot.png') }}" alt="Chatbot" class="nav-img">
+                                <img src="static/img/chatbot.png" alt="Chatbot" class="nav-img">
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contato">
-                                <img src="{{ url_for('static', filename='img/contato.png') }}" alt="Contato" class="nav-img">
+                                <img src="static/img/contato.png" alt="Contato" class="nav-img">
                             </a>
                         </li>
                     </ul>
@@ -51,7 +54,7 @@
             <div class="welcome-box">
                 <h1>Bem-vindo ao Nuvens e Robôs</h1>
                 <p>Oferecemos soluções personalizadas em chatbots para automatizar e melhorar a experiência do seu negócio.</p>
-                <img src="{{ url_for('static', filename='img/centro.png') }}" alt="Imagem Central" class="img-fluid mt-4 centro-img">
+                <img src="static/img/centro.png" alt="Imagem Central" class="img-fluid mt-4 centro-img">
                 
                 <!-- Texto explicativo sobre o chatbot -->
                 <div class="chatbot-explicacao">
@@ -68,7 +71,7 @@
                 <!-- Botão para a seção do chatbot -->
                 <div class="text-center mt-4">
                     <a href="#chatbot" class="nav-link">
-                        <img src="{{ url_for('static', filename='img/chatbot2.png') }}" alt="Chatbot" class="nav-img chatbot2-btn">
+                        <img src="static/img/chatbot2.png" alt="Chatbot" class="nav-img chatbot2-btn">
                     </a>
                 </div>
             </div>
@@ -81,14 +84,14 @@
                 <h2>Sobre Nós</h2>
                 <p>Somos uma empresa especializada no desenvolvimento de chatbots inteligentes que funcionam 24 horas por dia. Nossas soluções são projetadas para automatizar processos, melhorar a experiência do cliente e otimizar operações.</p>
                 <p>Além da criação de chatbots, oferecemos serviços de manutenção e atualização para garantir que seus bots estejam sempre funcionando com o máximo de eficiência e desempenho.</p>
-                <img src="{{ url_for('static', filename='img/sobre2.png') }}" alt="Sobre Nós" class="img-fluid sobre-img">
+                <img src="static/img/sobre2.png" alt="Sobre Nós" class="img-fluid sobre-img">
             </section>
 
             <!-- Seção Chatbot -->
             <section id="chatbot" class="hidden-section">
                 <h2>Chatbot</h2>
                 <div class="chatbot-box">
-                    <img src="{{ url_for('static', filename='img/manutencao.png') }}" alt="Chatbot em Manutenção" class="img-fluid manutencao-img">
+                    <img src="static/img/manutencao.png" alt="Chatbot em Manutenção" class="img-fluid manutencao-img">
                     <p>Nosso chatbot está em desenvolvimento. Em breve, estará pronto para ajudar você!</p>
                 </div>
             </section>
@@ -98,7 +101,7 @@
                 <h2>Fale Conosco</h2>
                 <p>Precisa de ajuda ou quer saber mais sobre nossos serviços? Entre em contato conosco pelo e-mail abaixo. Estamos aqui para transformar suas ideias em realidade!</p>
                 <p class="email-text">📧 <strong>nuvenserobos@gmail.com</strong></p>
-                <img src="{{ url_for('static', filename='img/email.png') }}" alt="Email" class="img-fluid email-img">
+                <img src="static/img/email.png" alt="Email" class="img-fluid email-img">
             </section>
         </main>
     </div>
@@ -108,26 +111,39 @@
         <p>&copy; 2023 Nuvens e Robôs. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script Personalizado -->
     <script>
-        // Exibe a página inicial ao carregar
-        document.addEventListener('DOMContentLoaded', () => {
-            const inicioSection = document.getElementById('inicio');
-            inicioSection.style.display = 'block';
-            inicioSection.classList.add('slide-in');
-        });
+        // Função para alternar entre as seções
+        function alternarSecao(targetId) {
+            const targetSection = document.getElementById(targetId);
+
+            // Verifica se a seção já está visível
+            if (targetSection.style.display === 'block') {
+                return; // Não faz nada se já estiver na seção atual
+            }
+
+            // Oculta todas as seções
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('slide-in');
+            });
+
+            // Mostra a seção clicada com animação
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                setTimeout(() => {
+                    targetSection.classList.add('slide-in');
+                }, 10);
+            }
+        }
 
         // Script para alternar entre as seções
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href').substring(1); // Remove o #
-                const targetSection = document.getElementById(targetId);
-
-                // Verifica se a seção já está visível
-                if (targetSection.style.display === 'block') {
-                    return; // Não faz nada se já estiver na seção atual
-                }
 
                 // Animação de "afundar" ao clicar
                 const img = link.querySelector('.nav-img');
@@ -136,31 +152,15 @@
                     img.style.transform = 'translateY(0)';
                 }, 100);
 
-                // Oculta todas as seções
-                document.querySelectorAll('section').forEach(section => {
-                    section.style.display = 'none';
-                    section.classList.remove('slide-in');
-                });
-
-                // Mostra a seção clicada com animação
-                if (targetSection) {
-                    targetSection.style.display = 'block';
-                    setTimeout(() => {
-                        targetSection.classList.add('slide-in');
-                    }, 10);
-                }
+                // Alterna para a seção clicada
+                alternarSecao(targetId);
             });
         });
 
         // Botão "Início" para voltar à página inicial
         document.getElementById('inicio-link').addEventListener('click', (e) => {
             e.preventDefault();
-            const inicioSection = document.getElementById('inicio');
-
-            // Verifica se já está na seção inicial
-            if (inicioSection.style.display === 'block') {
-                return; // Não faz nada se já estiver na seção inicial
-            }
+            const targetId = 'inicio';
 
             // Animação de "afundar" ao clicar
             const img = e.currentTarget.querySelector('.nav-img');
@@ -169,17 +169,15 @@
                 img.style.transform = 'translateY(0)';
             }, 100);
 
-            // Oculta todas as seções
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
-                section.classList.remove('slide-in');
-            });
+            // Alterna para a seção inicial com animação de deslize
+            alternarSecao(targetId);
+        });
 
-            // Mostra a página inicial com animação
+        // Exibe a página inicial ao carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            const inicioSection = document.getElementById('inicio');
             inicioSection.style.display = 'block';
-            setTimeout(() => {
-                inicioSection.classList.add('slide-in');
-            }, 10);
+            inicioSection.classList.add('slide-in');
         });
     </script>
 </body>
