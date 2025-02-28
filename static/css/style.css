@@ -18,12 +18,15 @@ body {
 /* Header */
 header {
     padding: 20px 20px;
+    position: relative; /* Adicionado para posicionar a logo */
+    width: 100%; /* Ocupa toda a largura da tela */
 }
 
 .navbar {
     background-color: transparent !important;
     border-radius: 15px;
     padding: 20px 25px;
+    width: 100%; /* Ocupa toda a largura da tela */
 }
 
 .navbar-nav .nav-link {
@@ -33,6 +36,29 @@ header {
 .nav-img {
     height: 60px;
     transition: transform 0.1s ease;
+}
+
+/* Logo e Título na lateral esquerda do header */
+.header-logo {
+    height: 85px; /* Aumentei mais um pouco (de 75px para 85px) */
+    margin-right: 10px; /* Espaço entre a logo e o título */
+}
+
+.header-titulo {
+    height: 50px; /* Ajuste conforme necessário */
+}
+
+/* Ajuste para subir a logo e o título */
+.d-flex.align-items-center {
+    position: absolute;
+    top: 5px; /* Diminui o valor para subir um pouco mais */
+    left: 20px;
+}
+
+/* Botão do menu hamburguer na lateral direita */
+.navbar-toggler {
+    margin-left: auto; /* Move o botão para a direita */
+    margin-right: 40px; /* Aumentei o espaçamento à direita */
 }
 
 /* Conteúdo Principal */
@@ -197,4 +223,79 @@ footer {
 /* Estilo específico para o botão chatbot2 */
 .chatbot2-btn {
     height: 80px;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .header-logo {
+        height: 60px;
+    }
+
+    .header-titulo {
+        height: 30px; /* Reduzi o tamanho da imagem do título */
+    }
+
+    .nav-img {
+        height: 40px; /* Tamanho original dos ícones */
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 0;
+    }
+
+    .welcome-box, .chatbot-explicacao, .conheca-chatbot {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .centro-img, .sobre-img, .manutencao-img, .email-img {
+        max-width: 80%;
+    }
+
+    .chatbot2-btn {
+        height: 60px;
+    }
+
+    footer {
+        padding: 10px 0;
+    }
+
+    /* Ajuste para exibir os botões horizontalmente no menu hamburguer */
+    .navbar-collapse {
+        flex-direction: row; /* Exibe os itens em linha */
+        justify-content: center; /* Centraliza os itens */
+        margin-top: 20px; /* Move os botões mais para baixo */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .navbar-nav {
+        flex-direction: row; /* Exibe os itens em linha */
+        justify-content: center; /* Centraliza os itens */
+        width: 100%; /* Ocupa toda a largura disponível */
+    }
+
+    .nav-item {
+        margin: 0 10px; /* Adiciona espaçamento entre os itens */
+    }
+
+    /* Ajuste para o botão do menu hamburguer */
+    .navbar-toggler {
+        margin-right: 5px; /* Move o botão mais para a direita */
+    }
 }

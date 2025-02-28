@@ -15,10 +15,17 @@
     <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light rounded">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <div class="container-fluid"> <!-- Alterado para container-fluid -->
+                <!-- Logo e Título na lateral esquerda -->
+                <div class="d-flex align-items-center">
+                    <img src="static/img/ico.png" alt="Logo" class="header-logo">
+                    <img src="static/img/titulo.png" alt="Título" class="header-titulo">
+                </div>
+                <!-- Botão do menu hamburguer na lateral direita -->
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Itens do menu -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -154,6 +161,12 @@
 
                 // Alterna para a seção clicada
                 alternarSecao(targetId);
+
+                // Fecha o menu hamburguer após clicar em um link (apenas em mobile)
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
             });
         });
 
