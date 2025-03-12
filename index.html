@@ -162,7 +162,7 @@
                 // Alterna para a seção clicada
                 alternarSecao(targetId);
 
-                // Fecha o menu hamburguer após clicar em um link (apenas em mobile)
+                // Remove a classe 'show' do menu hambúrguer (não fecha o menu)
                 const navbarCollapse = document.querySelector('.navbar-collapse');
                 if (navbarCollapse.classList.contains('show')) {
                     navbarCollapse.classList.remove('show');

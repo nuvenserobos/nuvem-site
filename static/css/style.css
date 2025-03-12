@@ -229,6 +229,9 @@ footer {
 @media (max-width: 768px) {
     body {
         font-size: 14px;
+        background-image: url("../img/bgm.png"); /* Usa a imagem específica para mobile */
+        background-position: center center; /* Centraliza a imagem */
+        background-size: cover; /* Cobrir toda a tela */
     }
 
     h1 {
@@ -276,14 +279,12 @@ footer {
         padding: 10px 0;
     }
 
-    /* Ajuste para exibir os botões horizontalmente no menu hamburguer */
+    /* Ajuste para o menu colapsado */
     .navbar-collapse {
-        flex-direction: row; /* Exibe os itens em linha */
-        justify-content: center; /* Centraliza os itens */
-        margin-top: 20px; /* Move os botões mais para baixo */
-        text-align: center; /* Centraliza o texto */
+        margin-top: 5px; /* Adiciona um espaçamento superior */
     }
 
+    /* Ajuste para exibir os botões horizontalmente no menu hamburguer */
     .navbar-nav {
         flex-direction: row; /* Exibe os itens em linha */
         justify-content: center; /* Centraliza os itens */
